@@ -49,6 +49,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Event.o \
 	${OBJECTDIR}/ExperimentDesignMyImpl1.o \
 	${OBJECTDIR}/FactorOrInteractionContribution.o \
+	${OBJECTDIR}/FitterJoaoSouto.o \
 	${OBJECTDIR}/FitterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTesterMyImpl1.o \
 	${OBJECTDIR}/HypothesisTester_ar.o \
@@ -67,6 +68,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/ProbDistrib.o \
 	${OBJECTDIR}/ProcessAnalyserMyImpl1.o \
+	${OBJECTDIR}/ProcessAnalyser_DS3_KarlaDiogo.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Resource.o \
@@ -184,6 +186,11 @@ ${OBJECTDIR}/FactorOrInteractionContribution.o: FactorOrInteractionContribution.
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactorOrInteractionContribution.o FactorOrInteractionContribution.cpp
 
+${OBJECTDIR}/FitterJoaoSouto.o: FitterJoaoSouto.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FitterJoaoSouto.o FitterJoaoSouto.cpp
+
 ${OBJECTDIR}/FitterMyImpl1.o: FitterMyImpl1.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -273,6 +280,11 @@ ${OBJECTDIR}/ProcessAnalyserMyImpl1.o: ProcessAnalyserMyImpl1.cpp nbproject/Make
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyserMyImpl1.o ProcessAnalyserMyImpl1.cpp
+
+${OBJECTDIR}/ProcessAnalyser_DS3_KarlaDiogo.o: ProcessAnalyser_DS3_KarlaDiogo.cpp nbproject/Makefile-${CND_CONF}.mk
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyser_DS3_KarlaDiogo.o ProcessAnalyser_DS3_KarlaDiogo.cpp
 
 ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
