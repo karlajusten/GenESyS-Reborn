@@ -15,6 +15,10 @@
 
 Resource::Resource(Model* model) : ModelInfrastructure(Util::TypeOf<Resource>()) {
 	model->getInfrastructures(Util::TypeOf<StatisticsCollector>())->insert(this->_cstatTimeSeized);
+       
+       /* pointerSetCapacoty = &<Resource>setCapacity;
+        SimulationControl* capacity = new SimulationControl(Util::TypeOf<Resource>(), "Capacity", pointerSetCapacity); 
+        model->getControls()->insert(capacity);*/
 }
 
 Resource::Resource(const Resource& orig) : ModelInfrastructure(orig) {

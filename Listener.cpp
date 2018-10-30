@@ -13,4 +13,13 @@
 
 #include "Listener.h"
 
+/*template<typename T1, typename T2>
+
+double Listener<T1>::memberFunctionGet(T1* ptrClass, double (T1::*memberFunctionGetDoubleVarHandler)()) { 
+    return (*memberFunctionGetDoubleVarHandler)(); 
+}
+
+void Listener<T2>::memberFunctionSet(T2* ptrClass, void (T2::*memberFunctionSetDoubleVarHandler)(), double value) { 
+    (ptrClass->*memberFunctionSetDoubleVarHandler)(value); 
+}*/
 

@@ -68,7 +68,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Plugin.o \
 	${OBJECTDIR}/ProbDistrib.o \
 	${OBJECTDIR}/ProcessAnalyserMyImpl1.o \
-	${OBJECTDIR}/ProcessAnalyser_DS3_KarlaDiogo.o \
+	${OBJECTDIR}/ProcessAnalyser_DS3_Karla.o \
 	${OBJECTDIR}/Queue.o \
 	${OBJECTDIR}/Release.o \
 	${OBJECTDIR}/Resource.o \
@@ -281,10 +281,10 @@ ${OBJECTDIR}/ProcessAnalyserMyImpl1.o: ProcessAnalyserMyImpl1.cpp nbproject/Make
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyserMyImpl1.o ProcessAnalyserMyImpl1.cpp
 
-${OBJECTDIR}/ProcessAnalyser_DS3_KarlaDiogo.o: ProcessAnalyser_DS3_KarlaDiogo.cpp nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/ProcessAnalyser_DS3_Karla.o: ProcessAnalyser_DS3_Karla.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyser_DS3_KarlaDiogo.o ProcessAnalyser_DS3_KarlaDiogo.cpp
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ProcessAnalyser_DS3_Karla.o ProcessAnalyser_DS3_Karla.cpp
 
 ${OBJECTDIR}/Queue.o: Queue.cpp nbproject/Makefile-${CND_CONF}.mk
 	${MKDIR} -p ${OBJECTDIR}

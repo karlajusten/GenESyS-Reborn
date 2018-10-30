@@ -18,6 +18,10 @@
 
 Create::Create(Model* model) : SourceModelComponent(model) {
 	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>());
+        
+        /*SimulationControl* setEntitiesCreated = new SimulationControl(Util::TypeOf<Create>(), "Entities Created", &setEntitiesCreated); 
+        model->getControls()->insert(setEntitiesCreated);*/
+        
 }
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {
@@ -51,7 +55,7 @@ void Create::_execute(Entity* entity) {
 		_model->getEvents()->insert(newEvent);
 		_model->traceSimulation(Util::TraceLevel::TL_blockInternal, tnow, entity, this, "Arrival of entity " + std::to_string(newEntity->getId()) + " schedule for time " + std::to_string(newArrivalTime));
 		//_model->trace(Util::TraceLevel::TL_blockInternal, "Arrival of entity "+std::to_string(entity->getId()) + " schedule for time " +std::to_string(newArrivalTime));
-	}
+        }
 	_model->sendEntityToComponent(entity, this->getNextComponents()->first(), 0.0);
 }
 

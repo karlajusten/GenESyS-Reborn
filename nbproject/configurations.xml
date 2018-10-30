@@ -150,8 +150,8 @@
         <itemPath>FactorOrInteractionContribution.h</itemPath>
         <itemPath>ProcessAnalyserMyImpl1.cpp</itemPath>
         <itemPath>ProcessAnalyserMyImpl1.h</itemPath>
-        <itemPath>ProcessAnalyser_DS3_KarlaDiogo.cpp</itemPath>
-        <itemPath>ProcessAnalyser_DS3_KarlaDiogo.h</itemPath>
+        <itemPath>ProcessAnalyser_DS3_Karla.cpp</itemPath>
+        <itemPath>ProcessAnalyser_DS3_Karla.h</itemPath>
         <itemPath>ProcessAnalyser_if.h</itemPath>
         <itemPath>ScenarioExperiment_if.h</itemPath>
         <itemPath>SimulationScenario.cpp</itemPath>
@@ -358,9 +358,9 @@
       </item>
       <item path="ProcessAnalyserMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProcessAnalyser_DS3_KarlaDiogo.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ProcessAnalyser_DS3_Karla.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProcessAnalyser_DS3_KarlaDiogo.h" ex="false" tool="3" flavor2="0">
+      <item path="ProcessAnalyser_DS3_Karla.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProcessAnalyser_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -632,9 +632,9 @@
       </item>
       <item path="ProcessAnalyserMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="ProcessAnalyser_DS3_KarlaDiogo.cpp" ex="false" tool="1" flavor2="0">
+      <item path="ProcessAnalyser_DS3_Karla.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="ProcessAnalyser_DS3_KarlaDiogo.h" ex="false" tool="3" flavor2="0">
+      <item path="ProcessAnalyser_DS3_Karla.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="ProcessAnalyser_if.h" ex="false" tool="3" flavor2="0">
       </item>

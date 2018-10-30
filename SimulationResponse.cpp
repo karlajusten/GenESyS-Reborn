@@ -13,7 +13,7 @@
 
 #include "SimulationResponse.h"
 
-SimulationResponse::SimulationResponse(std::string type, std::string name, memberFunctionGetDoubleVarHandler getHandler) {
+SimulationResponse::SimulationResponse(void type, std::string name, memberFunctionGetDoubleVarHandler getHandler) {
 	_type = type;
 	_name = name;
 	_memberFunctionGetDoubleHandler = getHandler;

@@ -92,8 +92,65 @@ typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
  * used to get and set values no matter the class (for process analyser)
  * should be a wait to invoke a getter or setter no matter the class (a pointer to a member function without specifying the class 
  */
-typedef double (*memberFunctionGetDoubleVarHandler)(); //template ... typedef double (T::*getDoubleVarHandler)() or something like that
-typedef void (*memberFunctionSetDoubleVarHandler)(double); 
+
+//++++++++NEW+++++++++//
+template <typename...> class Listener;
+typedef void* memberFunctionGetDoubleVarHandler;
+typedef void* memberFunctionSetDoubleVarHandler;
+
+template <typename T1, typename T2>
+class Listener<T1, T2> {
+    public:
+        double memberFunctionGet(T1* ptrClass, double (T1::*memberFunctionGetDoubleVarHandler)()){ 
+            return (*memberFunctionGetDoubleVarHandler)(); 
+        }
+        
+        void memberFunctionSet(T2* ptrClass, void (T2::*memberFunctionSetDoubleVarHandler)(), double value){ 
+            (ptrClass->*memberFunctionSetDoubleVarHandler)(value); 
+        }
+};
+
+
+
+//template<classname T>
+/*typedef void* memberFunctionGetDoubleVarHandler; //template ... typedef double (T::*getDoubleVarHandler)() or something like that
+typedef void* memberFunctionSetDoubleVarHandler;
+
+    template<typename Type>
+    double memberFunctionGet(void* ptrClass, double (Type::*memberFunctionGetDoubleVarHandler)()) { 
+        return (*memberFunctionGetDoubleVarHandler)(); 
+    }
+
+    template<typename Type>
+    void memberFunctionSet(void* ptrClass, void (Type::*memberFunctionSetDoubleVarHandler)(), double value) { 
+        (ptrClass->*memberFunctionSetDoubleVarHandler)(value); 
+    }
+*/
+/*
+template <typename T, typename F>
+double memberFunctionGetDoubleVarHandler(T t, F f){
+    return (t.*f)();
+}
+
+template <typename T, typename F>
+void memberFunctionSetDoubleVarHandler(double d){
+    typedef void (T::*memberFunctionSetDoubleVarHandler)(double);
+    memberFunctionSetDoubleVarHandler toCall = &T::F;
+    (*toCall)(d);
+}*/
+
+/*
+template<class A>
+class Listener {
+public:
+  typedef double A::*memberFunctionGetDoubleVarHandler();
+};
+
+template<class A>
+double Listener<A>::*memberFunctionGetDoubleVarHandler() {
+  return A;
+}*/
+
 
 
 //class Listener {
