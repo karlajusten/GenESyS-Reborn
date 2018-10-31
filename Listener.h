@@ -94,7 +94,44 @@ typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
  */
 
 //++++++++NEW+++++++++//
-template <typename...> class Listener;
+//Tentativa de functor
+// Bsed on: https://stackoverflow.com/questions/356950/what-are-c-functors-and-their-uses
+template<typename Type>
+struct memberFunctionGet {
+  memberFunctionGet(void* object, void* function) : object(object), function(function) {}
+  double operator()() 
+        const { return (static_cast<Type*>(object)->*function)(); } 
+private:
+  void* function;
+  void* object;
+};
+
+template<class T>
+struct memberFunctionSet {
+  memberFunctionSet(void* object, void* function) : object(object), function(function){}
+  void operator()(double d) 
+        const { (static_cast<T*>(object)->*function)(); } 
+
+private:
+  void* object;
+  void* function;
+  double d;
+};
+
+/*template<class T>
+struct memberFunctionSet {
+  memberFunctionSet(void* prtclass, void* function) : prtclass(prtclass), function(function){}
+  void operator()(double d) 
+        const { T::*function(d); }
+
+private:
+  void* prtclass;
+  void* function;
+  double d;
+};*/
+
+
+/*template <typename...> class Listener;
 typedef void* memberFunctionGetDoubleVarHandler;
 typedef void* memberFunctionSetDoubleVarHandler;
 
@@ -108,12 +145,26 @@ class Listener<T1, T2> {
         void memberFunctionSet(T2* ptrClass, void (T2::*memberFunctionSetDoubleVarHandler)(), double value){ 
             (ptrClass->*memberFunctionSetDoubleVarHandler)(value); 
         }
-};
+};*/
+
+/*typedef void* memberFunctionGetDoubleVarHandler;
+typedef void* memberFunctionSetDoubleVarHandler;
+
+template<class T>
+double memberFunctionGet(T* ptrClass, double (T::*memberFunctionGetDoubleVarHandler)()){ 
+    return (*memberFunctionGetDoubleVarHandler)(); 
+}
+
+template<class T2>
+void memberFunctionSet(T2* ptrClass, void (T2::*memberFunctionSetDoubleVarHandler)(), double value){ 
+    (ptrClass->*memberFunctionSetDoubleVarHandler)(value); 
+}*/
 
 
 
 //template<classname T>
 /*typedef void* memberFunctionGetDoubleVarHandler; //template ... typedef double (T::*getDoubleVarHandler)() or something like that
+
 typedef void* memberFunctionSetDoubleVarHandler;
 
     template<typename Type>
