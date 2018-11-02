@@ -23,13 +23,13 @@
  */
 class SimulationControl: public SimulationResponse {
 public:
-	SimulationControl(void* type, std::string name, void* getHandler, void* setHandler);
+	SimulationControl(std::string type, std::string name, void* prtClass, void* ptrGetMethod, void* ptrSetMethod);
 	SimulationControl(const SimulationControl& orig);
 	virtual ~SimulationControl();
 public:
 	void getValue(double value);
 private:
-        void* _memberFunctionSetDoubleHandler; // a pointer to a member function that sets a double
+        SetFunctor _memberFunctionSetDoubleHandler; // a pointer to a member function that sets a double
 };
 
 #endif /* SIMULATIONCONTROL_H */

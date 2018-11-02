@@ -16,6 +16,8 @@
 
 #include <string>
 
+#include <functional>
+
 #include "Util.h"
 
 class Entity;
@@ -94,9 +96,23 @@ typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
  */
 
 //++++++++NEW+++++++++//
+
+typedef std::function<double()> GetFunctor;
+typedef std::function<void(double)> SetFunctor;
+
+template<typename Class>
+GetFunctor make_get_functor(Class * object, double (Class::*function)()) {
+	return std::bind(function, object);
+}
+
+template<typename Class>
+SetFunctor make_set_functor(Class * object, void (Class::*function)(double)) {
+	return std::bind(function, object, std::placeholders::_1);
+}
+
 //Tentativa de functor
 // Bsed on: https://stackoverflow.com/questions/356950/what-are-c-functors-and-their-uses
-template<typename Type>
+/*template<typename Type>
 struct memberFunctionGet {
   memberFunctionGet(void* object, void* function) : object(object), function(function) {}
   double operator()() 
@@ -116,7 +132,7 @@ private:
   void* object;
   void* function;
   double d;
-};
+};*/
 
 /*template<class T>
 struct memberFunctionSet {

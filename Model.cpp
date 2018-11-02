@@ -63,7 +63,11 @@ Model::Model(Simulator* simulator) {
 	
 	// DS1 Theme (1)
 	// PAN
-	SimulationResponse* replicationLenghtGet = new SimulationResponse(this, "Replication Lenght", &getReplicationLengthNotMemberFunction); // getReplicationLength shoud the the Model member function with the same name
+	SimulationResponse* replicationLenghtGet = 
+                new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", 
+                this, 
+                &Model::getNumberOfReplications()); // getReplicationLength shoud the the Model member function with the same name
+       
         //SimulationResponse* numberOfReplicationsGet = new SimulationResponse(Util::TypeOf<Model>(), "Number Of Replications", &getNumberOfReplications);
         getResponses()->insert(replicationLenghtGet);
         //getResponses()->insert(numberOfReplicationsGet);

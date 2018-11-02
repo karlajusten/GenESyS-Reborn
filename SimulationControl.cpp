@@ -14,9 +14,11 @@
 #include "SimulationControl.h"
 #include "List.h"
 
-SimulationControl::SimulationControl(void* type, std::string name, void* getHandler, void* setHandler): SimulationResponse(type, name, getHandler) {
+
+SimulationControl::SimulationControl(std::string type, std::string name, void* prtClass, void* ptrGetMethod, void* ptrSetMethod): SimulationResponse(type, name, prtClass, ptrGetMethod) {
     this->_type = type;
-    this->_memberFunctionSetDoubleHandler = setHandler;
+    this->_memberFunctionGetDoubleHandler = make_get_functor(prtClass, ptrGetMethod);
+    this->_memberFunctionSetDoubleHandler = make_set_functor(prtClass, ptrSetMethod);
 }
 
 SimulationControl::SimulationControl(const SimulationControl& orig): SimulationResponse(orig) {
@@ -38,8 +40,10 @@ void SimulationControl::getValue(double value) {
     
     //obj.template memberFunctionSet(_type, _memberFunctionSetDoubleHandler, value);
     
-    memberFunctionSet functionSet(_type, _memberFunctionSetDoubleHandler);
-    functionSet(value);
+    /*memberFunctionSet functionSet(_type, _memberFunctionSetDoubleHandler);
+    functionSet(value);*/
+    
+    _memberFunctionSetDoubleHandler(value);
      
 }
 
