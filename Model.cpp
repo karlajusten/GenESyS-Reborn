@@ -21,6 +21,7 @@
 #include "Simulator.h"
 //#include "ParserMyImpl1.h" // avoid link error
 #include "StatisticsCollector.h"
+#include "Listener.h"
 
 bool EventCompare(const Event* a, const Event * b) {
 	return a->getTime() < b->getTime();
@@ -65,9 +66,8 @@ Model::Model(Simulator* simulator) {
 	// PAN
 	SimulationResponse* replicationLenghtGet = 
                 new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", 
-                this, 
-                &Model::getNumberOfReplications); // getReplicationLength shoud the the Model member function with the same name
-       
+                make_get_functor(this, 
+                &Model::getNumberOfReplications)); // getReplicationLength shoud the the Model member function with the same name
         //SimulationResponse* numberOfReplicationsGet = new SimulationResponse(Util::TypeOf<Model>(), "Number Of Replications", &getNumberOfReplications);
         getResponses()->insert(&replicationLenghtGet);
         //getResponses()->insert(numberOfReplicationsGet);

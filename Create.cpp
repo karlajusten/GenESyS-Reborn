@@ -15,6 +15,7 @@
 #include "Model.h"
 #include "EntityType.h"
 //#include <typeinfo>
+#include "Listener.h"
 
 Create::Create(Model* model) : SourceModelComponent(model) {
 	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>());
@@ -22,14 +23,14 @@ Create::Create(Model* model) : SourceModelComponent(model) {
         /*SimulationControl* setEntitiesCreated = new SimulationControl(Util::TypeOf<Create>(), "Entities Created", &setEntitiesCreated); 
         model->getControls()->insert(setEntitiesCreated);*/
         
-       /* SimulationControl* settingSetEntitiesCreated = new SimulationControl(
+        SimulationControl* settingSetEntitiesCreated = new SimulationControl(
 		Util::TypeOf<Create>(),
 		"Entities Created",
 		make_get_functor(this, &Create::getEntitiesCreated),
 		make_set_functor(this, &Create::setEntitiesCreated)
 	);
 
-    model->getControls()->insert(settingSetEntitiesCreated);*/
+    model->getControls()->insert(settingSetEntitiesCreated);
 }
 
 Create::Create(const Create& orig) : SourceModelComponent(orig) {

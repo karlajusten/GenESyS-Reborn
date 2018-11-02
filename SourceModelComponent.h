@@ -40,8 +40,8 @@ public: // get & set
 	std::string getTimeBetweenCreationsExpression() const;
 	void setMaxCreations(unsigned int _maxCreations);
 	unsigned int getMaxCreations() const;
-	unsigned int getEntitiesCreated() const;
-	void setEntitiesCreated(unsigned int _entitiesCreated);
+	double getEntitiesCreated() const;
+	void setEntitiesCreated(double _entitiesCreated);
 	void setEntitiesPerCreation(unsigned int _entitiesPerCreation);
 	unsigned int getEntitiesPerCreation() const;
 public:
@@ -54,7 +54,7 @@ protected: // get & set
 	std::string _timeBetweenCreationsExpression = "10"; ////
 	Util::TimeUnit _timeBetweenCreationsTimeUnit = Util::TimeUnit::TU_second;
 	bool _collectStatistics = true;
-	unsigned int _entitiesCreatedSoFar = 0;
+	double _entitiesCreatedSoFar = 0;
 };
 
 #endif /* SOURCEMODELCOMPONENT_H */

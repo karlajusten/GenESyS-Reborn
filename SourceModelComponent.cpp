@@ -77,11 +77,11 @@ unsigned int SourceModelComponent::getMaxCreations() const {
 	return _maxCreations;
 }
 
-unsigned int SourceModelComponent::getEntitiesCreated() const {
+double SourceModelComponent::getEntitiesCreated() const {
 	return _entitiesCreatedSoFar;
 }
 
-void SourceModelComponent::setEntitiesCreated(unsigned int _entitiesCreated) {
+void SourceModelComponent::setEntitiesCreated(double _entitiesCreated) {
 	this->_entitiesCreatedSoFar = _entitiesCreated;
 }
 
