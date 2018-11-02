@@ -66,10 +66,10 @@ Model::Model(Simulator* simulator) {
 	SimulationResponse* replicationLenghtGet = 
                 new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", 
                 this, 
-                &Model::getNumberOfReplications()); // getReplicationLength shoud the the Model member function with the same name
+                &Model::getNumberOfReplications); // getReplicationLength shoud the the Model member function with the same name
        
         //SimulationResponse* numberOfReplicationsGet = new SimulationResponse(Util::TypeOf<Model>(), "Number Of Replications", &getNumberOfReplications);
-        getResponses()->insert(replicationLenghtGet);
+        getResponses()->insert(&replicationLenghtGet);
         //getResponses()->insert(numberOfReplicationsGet);
         
         /*SimulationControl* replicationLenghtSet = new SimulationControl(Util::TypeOf<Model>(), "Replication Lenght", &setNumberOfReplications, colocar get tbm... );
@@ -411,11 +411,11 @@ std::string Model::getVersion() const {
 	return _version;
 }
 
-void Model::setNumberOfReplications(unsigned int _numberOfReplications) {
+void Model::setNumberOfReplications(double _numberOfReplications) {
 	this->_numberOfReplications = _numberOfReplications;
 }
 
-unsigned int Model::getNumberOfReplications() const {
+double Model::getNumberOfReplications() const {
 	return _numberOfReplications;
 }
 

@@ -15,10 +15,10 @@
 #include "List.h"
 
 
-SimulationControl::SimulationControl(std::string type, std::string name, void* prtClass, void* ptrGetMethod, void* ptrSetMethod): SimulationResponse(type, name, prtClass, ptrGetMethod) {
+SimulationControl::SimulationControl(std::string type, std::string name, void* prtClass, double (Class::*getFunction)(), void (Class::*setFunction)(double)): SimulationResponse(type, name, prtClass, getFunction) {
     this->_type = type;
-    this->_memberFunctionGetDoubleHandler = make_get_functor(prtClass, ptrGetMethod);
-    this->_memberFunctionSetDoubleHandler = make_set_functor(prtClass, ptrSetMethod);
+    this->_memberFunctionGetDoubleHandler = make_get_functor(prtClass, getFunction);
+    this->_memberFunctionSetDoubleHandler = make_set_functor(prtClass, setFunction);
 }
 
 SimulationControl::SimulationControl(const SimulationControl& orig): SimulationResponse(orig) {

@@ -79,8 +79,8 @@ public: // gets and sets
 	std::string getProjectTitle() const;
 	void setVersion(std::string _version);
 	std::string getVersion() const;
-	void setNumberOfReplications(unsigned int _numberOfReplications);
-	unsigned int getNumberOfReplications() const;
+	void setNumberOfReplications(double _numberOfReplications);
+	double getNumberOfReplications() const;
 	void setReplicationLength(double _replicationLength);
 	double getReplicationLength() const;
 	void setReplicationLengthTimeUnit(Util::TimeUnit _replicationLengthTimeUnit);
@@ -143,7 +143,7 @@ private: // with public access (get & set)
 	std::string _version = "1.0";
 
 	// replication and warmup duration
-	unsigned int _numberOfReplications = 1;
+	double _numberOfReplications = 1;
 	double _replicationLength = 3600.0; // by default, 3600 s
 	Util::TimeUnit _replicationLengthTimeUnit = Util::TimeUnit::TU_second;
 	double _warmUpPeriod = 0.0;

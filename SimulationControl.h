@@ -21,9 +21,11 @@
 /*!
  * Represents any possible parameter or control for a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation control. It just have to create a SimulationControl object, passing the access to the methods that gets and sets the control value and including this SimulationControl in the corresponding list of the model
  */
-class SimulationControl: public SimulationResponse {
+
+template<typename Class>
+class SimulationControl: public SimulationResponse<Class> {
 public:
-	SimulationControl(std::string type, std::string name, void* prtClass, void* ptrGetMethod, void* ptrSetMethod);
+	SimulationControl(std::string type, std::string name, void* prtClass, double (Class::*getFunction)(), void (Class::*setFunction)(double));
 	SimulationControl(const SimulationControl& orig);
 	virtual ~SimulationControl();
 public:

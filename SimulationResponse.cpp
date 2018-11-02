@@ -12,11 +12,11 @@
  */
 
 #include "SimulationResponse.h"
-
-SimulationResponse::SimulationResponse(std::string type, std::string name, void* prtClass, void* prtMethod) {
+template<typename Class>
+SimulationResponse::SimulationResponse(std::string type, std::string name, void* prtClass, double (Class::*function)()) {
 	_type = type;
 	_name = name;
-	_memberFunctionGetDoubleHandler = make_get_functor(prtClass, prtMethod);
+	_memberFunctionGetDoubleHandler = make_get_functor(prtClass, function);
 }
 
 SimulationResponse::SimulationResponse(const SimulationResponse& orig) {

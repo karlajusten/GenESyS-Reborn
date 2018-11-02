@@ -20,9 +20,10 @@
 /*!
  * Represents any possible response of a simulation. Any infrastructure or event the model can declare one of its own attribute as a simulation response. It just have to create a SimulationResponse object, passing the access to the method that gets the response value and including this SimulationResponse in the corresponding list of the model
  */
+template<typename Class>
 class SimulationResponse {
 public:
-	SimulationResponse(std::string type, std::string name, void* prtClass, void* prtMethod); // setDoubleVarHandler will have to change to be a member function
+	SimulationResponse(std::string type, std::string name, void* prtClass, double (Class::*function)()); // setDoubleVarHandler will have to change to be a member function
 	SimulationResponse(const SimulationResponse& orig);
 	virtual ~SimulationResponse();
 public:
