@@ -97,19 +97,6 @@ typedef void (*traceSimulationProcessListener)(TraceSimulationProcess);
 
 //++++++++NEW+++++++++//
 
-typedef std::function<double()> GetFunctor;
-typedef std::function<void(double)> SetFunctor;
-
-template<typename Class>
-GetFunctor make_get_functor(Class * object, double (Class::*function)()) {
-	return std::bind(function, object);
-}
-
-template<typename Class>
-SetFunctor make_set_functor(Class * object, void (Class::*function)(double)) {
-	return std::bind(function, object, std::placeholders::_1);
-}
-
 //Tentativa de functor
 // Bsed on: https://stackoverflow.com/questions/356950/what-are-c-functors-and-their-uses
 /*template<typename Type>

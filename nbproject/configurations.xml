@@ -170,6 +170,7 @@
       <itemPath>TestInputAnalyserTools.h</itemPath>
     </logicalFolder>
     <logicalFolder name="f6" displayName="Util" projectFiles="true">
+      <itemPath>Functor.h</itemPath>
       <itemPath>LinkedBy.cpp</itemPath>
       <itemPath>LinkedBy.h</itemPath>
       <itemPath>List.h</itemPath>
@@ -200,6 +201,11 @@
         <ccTool>
           <commandLine>-std=c++11 -fpermissive</commandLine>
         </ccTool>
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
       </compileType>
       <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -275,6 +281,8 @@
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Functor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -474,6 +482,11 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
       </compileType>
       <item path="Assign.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -549,6 +562,8 @@
       <item path="FitterMyImpl1.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Fitter_if.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Functor.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="GenesysApplication_if.h" ex="false" tool="3" flavor2="0">
       </item>

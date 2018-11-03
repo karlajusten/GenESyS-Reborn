@@ -15,7 +15,8 @@
 #include "Model.h"
 #include "EntityType.h"
 //#include <typeinfo>
-#include "Listener.h"
+//#include "Listener.h"
+#include "Functor.h"
 
 Create::Create(Model* model) : SourceModelComponent(model) {
 	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>());
@@ -26,8 +27,12 @@ Create::Create(Model* model) : SourceModelComponent(model) {
         SimulationControl* settingSetEntitiesCreated = new SimulationControl(
 		Util::TypeOf<Create>(),
 		"Entities Created",
-		make_get_functor(this, &Create::getEntitiesCreated),
-		make_set_functor(this, &Create::setEntitiesCreated)
+		//! Precisou explicitar <SourceModelComponent> qual classe que é por causa da herança
+		//! Mas tenta sempre fazer sem, se ele acusar class vs base class dai vc explecita
+		//! os erros tbm dizem que se não batem a assinatura do método
+		//! no caso double() é diferente double() const dai eu criei outra função
+		make_get_functor<SourceModelComponent>(this, &Create::getEntitiesCreated),
+		make_set_functor<SourceModelComponent>(this, &Create::setEntitiesCreated)
 	);
 
     model->getControls()->insert(settingSetEntitiesCreated);
@@ -74,7 +79,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 	this->_entitiesPerCreation = std::stoi((*it++));
 	this->_firstCreation = std::stoi((*it++));
 	this->_timeBetweenCreationsExpression = (*it++);
-	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++)); // bad enum convertion!
+//	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++)); // bad enum convertion!
 	this->_maxCreations = std::stoi((*it++));
 	this->_entityType = (*it++);
 	this->_collectStatistics = std::stoi(*it++);
