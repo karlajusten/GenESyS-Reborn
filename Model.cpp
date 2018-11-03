@@ -66,10 +66,11 @@ Model::Model(Simulator* simulator) {
 	// PAN
 	SimulationResponse* replicationLenghtGet = 
                 new SimulationResponse(Util::TypeOf<Model>(), "Replication Lenght", 
-                make_get_functor(this, 
-                &Model::getNumberOfReplications)); // getReplicationLength shoud the the Model member function with the same name
+                make_get_functor(this, &Model::getNumberOfReplications)); // getReplicationLength shoud the the Model member function with the same name
         //SimulationResponse* numberOfReplicationsGet = new SimulationResponse(Util::TypeOf<Model>(), "Number Of Replications", &getNumberOfReplications);
-        getResponses()->insert(&replicationLenghtGet);
+        
+		//! vc estava passando &rep... de um ponteiro => ficava Simlu... **
+        getResponses()->insert(replicationLenghtGet);
         //getResponses()->insert(numberOfReplicationsGet);
         
         /*SimulationControl* replicationLenghtSet = new SimulationControl(Util::TypeOf<Model>(), "Replication Lenght", &setNumberOfReplications, colocar get tbm... );

@@ -15,19 +15,17 @@
 #include "Model.h"
 #include "EntityType.h"
 //#include <typeinfo>
-#include "Listener.h"
+//#include "Listener.h"
+#include "Functor.h"
 
 Create::Create(Model* model) : SourceModelComponent(model) {
 	_name = "Create " + std::to_string(Util::GenerateNewIdOfType<Create>());
         
-        /*SimulationControl* setEntitiesCreated = new SimulationControl(Util::TypeOf<Create>(), "Entities Created", &setEntitiesCreated); 
-        model->getControls()->insert(setEntitiesCreated);*/
-        
         SimulationControl* settingSetEntitiesCreated = new SimulationControl(
 		Util::TypeOf<Create>(),
 		"Entities Created",
-		make_get_functor(this, &Create::getEntitiesCreated),
-		make_set_functor(this, &Create::setEntitiesCreated)
+		make_get_functor<SourceModelComponent>(this, &Create::getEntitiesCreated),
+		make_set_functor<SourceModelComponent>(this, &Create::setEntitiesCreated)
 	);
 
     model->getControls()->insert(settingSetEntitiesCreated);
@@ -74,7 +72,7 @@ void Create::_loadInstance(std::list<std::string> words) {
 	this->_entitiesPerCreation = std::stoi((*it++));
 	this->_firstCreation = std::stoi((*it++));
 	this->_timeBetweenCreationsExpression = (*it++);
-	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++)); // bad enum convertion!
+//	this->_timeBetweenCreationsTimeUnit = std::stoi((*it++)); // bad enum convertion!
 	this->_maxCreations = std::stoi((*it++));
 	this->_entityType = (*it++);
 	this->_collectStatistics = std::stoi(*it++);
